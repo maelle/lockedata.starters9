@@ -18,10 +18,9 @@ if (Sys.getenv("id_rsa") != "") {
                                    full.names = TRUE),
                                dir(path = "slides", pattern = "*.[Rr]md",
                                    full.names = TRUE)),
-                             rmarkdown::render,
-                             intermediates_dir = "outputs",
-                             output_dir = "outputs")) %>%
-        add_step(step_push_deploy(path = "outputs", branch = "gh-pages"))
+                             output_dir = "slides",
+                             rmarkdown::render)) %>%
+        add_step(step_push_deploy(path = "slides", branch = "gh-pages"))
       }
     }
 
