@@ -13,3 +13,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/maelle/lockedata.starters9
 BugReports: https://github.com/maelle/lockedata.starters9/issues
+Imports: 
+    rmarkdown
+Suggests:
+    xaringan
