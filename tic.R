@@ -10,11 +10,11 @@ if (Sys.getenv("id_rsa") != "") {
                    full.names = TRUE)
     slides <- dir(path = "slides", pattern = "*.[Rr]md",
                    full.names = TRUE)
-    toknit <- c(reports, slides)
-    if(length(toknit) > 0){
+
+    if(length(c(reports, slides)) > 0){
       output_dir <- "outputs"
       get_stage("deploy") %>%
-        add_code_step(lapply(toknit,
+        add_code_step(lapply(c(reports, slides),
                              rmarkdown::render,
                              output_dir = output_dir)) %>%
         add_step(step_push_deploy(path = output_dir, branch = "gh-pages"))
