@@ -9,6 +9,7 @@ before_install:
 - R -q -e 'if (getRversion() < "3.2" && !requireNamespace("curl")) install.packages("curl")'
 - R -q -e 'remotes::install_github("ropenscilabs/tic"); tic::prepare_all_stages()'
 - R -q -e 'tic::before_install()'
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
 install: R -q -e 'tic::install()'
 after_install: R -q -e 'tic::after_install()'
 before_script: R -q -e 'tic::before_script()'
