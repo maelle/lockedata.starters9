@@ -12,13 +12,12 @@ if (Sys.getenv("id_rsa") != "") {
                    full.names = TRUE)
 
     if(length(c(reports, slides)) > 0){
-      reports <- dir(path = "handouts", pattern = "*.[Rr]md",
-                     full.names = TRUE)
-      slides <- dir(path = "slides", pattern = "*.[Rr]md",
-                    full.names = TRUE)
       output_dir <- "outputs"
       get_stage("deploy") %>%
-        add_code_step(lapply(c(reports, slides),
+        add_code_step(lapply(c(dir(path = "handouts", pattern = "*.[Rr]md",
+                                   full.names = TRUE),
+                               dir(path = "slides", pattern = "*.[Rr]md",
+                                   full.names = TRUE)),
                              rmarkdown::render,
                              output_dir = output_dir)) %>%
         add_step(step_push_deploy(path = output_dir, branch = "gh-pages"))
