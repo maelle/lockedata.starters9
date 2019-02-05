@@ -8,7 +8,7 @@ Authors@R:
            email = "maelle.salmon@yahoo.se",
            comment = structure("0000-0002-2815-0399", .Names = "ORCID"))
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/maelle/lockedata.starters9
